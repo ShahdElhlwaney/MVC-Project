@@ -1,0 +1,49 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "NEw";
+    SelectList deptItems = new SelectList(ViewBag.DeptNameList,"Id","Name");
+}
+<form asp-action="SaveNew" asp-controller="Employee"  method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Salary"></label>
+        <input asp-for="Salary" class="form-control" type="number"/>
+        <span asp-validation-for="Salary" class="text-danger"></span>
+
+    </div>
+    <div>
+        <label asp-for="Address"></label>
+        <input asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+
+    </div>
+    <div>
+        <label asp-for="Image"></label>
+        <input asp-for="Image" class="form-control" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+
+    </div>
+    <div>
+        <select asp-for="Dept_Id" class="form-control" asp-items="deptItems" >
+            
+        </select>
+        <span asp-validation-for="Dept_Id" class="text-danger"></span>
+
+        <input type="submit" value="Add" class="btn btn-success" />
+
+    </div>
+   
+</form>
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+
+<h1>NEw</h1>
+

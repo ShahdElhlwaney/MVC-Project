@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<a asp-action="NEw" asp-controller="Employee" style="width:70%;position:relative;left:10%">New</a>
+<br />
+<br />
+<html>
+    <body>
+    <table class="table table-bordered" style="width:70%;position:relative;left:10%;">
+        @foreach (Employee emp in Model)
+        {
+            <tr>
+                <td>
+                    <div class="flex-xl-column" style="display:block">
+                        <span>@emp.Name</span>
+                      
+                      
+                    <span>
+                    <button class="toggleButton" style="position:absolute;right:40%"
+                    onclick="Data(@emp.Id)">
+                    Details
+                    </button>
+                    </span>
+                        
+                     
+                        
+                    <div id="@emp.Id"></div>
+
+                        
+                        
+                    </div>
+                   
+                </td>
+                <td>
+                    <a href="/Employee/Edit/@emp.Id">Edit</a>
+                </td>
+            </tr>
+        }
+    </table>
+    </body>
+</html>
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"> </script>
+    <script>
+        function Data(empId) {
+            event.preventDefault();
+            console.log(empId);
+            $.ajax({
+                url: "/Employee/Details/"+empId,
+                success: function (result) {
+                    document.getElementById(empId).innerHTML = result;
+                     }
+           })
+           }                          
+    </script> 
+    }

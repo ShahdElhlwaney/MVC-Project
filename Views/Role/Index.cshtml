@@ -1,0 +1,29 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@model List<IdentityRole>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<a asp-action="New"  style="width:70%;position:relative;left:10%">New Role</a>
+<br />
+<br />
+<html>
+<body>
+    <table class="table table-bordered" style="width:70%;position:relative;left:10%;">
+        @foreach (IdentityRole role in Model)
+        {
+            <tr>
+                <td>
+                    <div class="flex-xl-column" style="display:block">
+                        <span>@role.Name</span>
+
+                        <span>                        
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
+

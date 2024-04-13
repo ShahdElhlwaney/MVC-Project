@@ -1,0 +1,43 @@
+﻿@model List<Trainee>
+@{
+    ViewData["Title"] = "Index";
+}
+<a asp-action="NEw" asp-controller="Employee" style="width:70%;position:relative;left:10%">New</a>
+<br />
+<br />
+<html>
+<body>
+    <table class="table table-bordered" style="width:70%;position:relative;left:10%;">
+        @foreach (Trainee trainee in Model)
+        {
+            <tr>
+                <td>
+                    <div class="flex-xl-column" style="display:block">
+                        <span>@trainee.Name</span>
+
+
+                        <span>
+                            <a class="toggleButton" style="position:absolute;right:40%"
+                               href="/Trainee/Details/@trainee.Id">
+                                Details
+                            </a>
+                        </span>
+
+                        <span>
+                            <a class="toggleButton" style="position:absolute;right:20%"
+                                href="/Trainee/GetTraineeCrsResults/@trainee.Id">Courses</a>
+                        </span>
+
+                        <div id="@trainee.Id"></div>
+                    </div>
+
+                </td>
+              
+            </tr>
+        }
+    </table>
+</body>
+</html>
+
+
+

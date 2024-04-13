@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "GetTraineeCrsResults";
+}
+
+<a href="/Department/New" style="width:70%;position:relative;left:10%;">New Department</a>
+
+<table class="table table-bordered" style="width:70%;position:relative;left:10%;">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>CourseName</th>
+        <th>Degree</th>
+    </tr>
+
+    @foreach (var item in Model.Results)
+    {
+        <tr>
+            <td>@Model.Id</td>
+            <td>@Model.Name</td>
+            <td>@item.Course.Name</td>
+            <td>@item.Degree</td>
+        </tr>
+
+    }
+
+</table>

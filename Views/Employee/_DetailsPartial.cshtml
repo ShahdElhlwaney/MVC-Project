@@ -1,0 +1,21 @@
+﻿@model Employee
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="card mb-3" style="max-width: 400px;">
+    <div >
+        <div >
+            <img src="@Model.Image" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Name</h5>
+                <p class="card-text">Salary: @Model.Salary $</p>
+                <p class="card-text"><small class="text-muted">Address:@Model.Address</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+@*class="row g-0"
+    class="col-md-4"
+*@

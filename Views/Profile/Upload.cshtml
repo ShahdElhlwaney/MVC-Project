@@ -1,0 +1,20 @@
+﻿@model ImageViewModel
+@{
+    string Name= User.Identity.Name;
+    var s=User.Claims;
+    string filePath = TempData["path"] as string;
+
+    ViewData["Title"] = "Upload";
+}
+
+
+
+<img src=@Url.Content("~/Images/"+filePath)
+    
+ width="200" alt="No File" />
+<h2>Welcome Your Profile, @User.Identity.Name</h2>
+
+<form asp-action="Upload" method="post" enctype="multipart/form-data">
+    <input type="file" asp-for="imageFile" />
+    <button type="submit">Upload Image</button>
+</form>
